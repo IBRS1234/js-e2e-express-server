@@ -16,6 +16,11 @@ pool:
     - npm
 
 steps:
+- task: NuGetCommand@2
+  inputs:
+    command: pack
+    packagesToPack: '**/*.csproj'
+    packDestination: '$(Build.ArtifactStagingDirectory)'
 - script: echo hello world
 # - task: NodeTool@0
 #   inputs:
